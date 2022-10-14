@@ -22,11 +22,10 @@ public class ClientController {
         return clientService.getAllClient();
     }
 
-    @PostMapping("/all")
-    @ResponseStatus(HttpStatus.CREATED)
-    public List<ClientModel> getAllClient2() {
-        return clientService.getAllClient();
-    }
+    //@GetMapping("/all")
+    //public List<ClientModel> getAllClient2() {
+    //    return clientService.getAllClient();
+    //}
 
     @GetMapping("/{idClient}")
     public Optional<ClientModel> getClient(@PathVariable Integer idClient) {

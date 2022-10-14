@@ -21,11 +21,10 @@ public class SpecialtyController {
         return specialtyService.getAllSpecialty();
     }
 
-    @PostMapping("/all")
-    @ResponseStatus(HttpStatus.CREATED)
-    public List<SpecialtyModel> getAllSpecialty2() {
-        return specialtyService.getAllSpecialty();
-    }
+    //@GetMapping("/all")
+    //public List<SpecialtyModel> getAllSpecialty2() {
+    //    return specialtyService.getAllSpecialty();
+    //}
 
     @GetMapping("/{id}")
     public Optional<SpecialtyModel> getSpecialty(@PathVariable Integer id) {

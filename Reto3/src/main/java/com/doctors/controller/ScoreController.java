@@ -22,11 +22,10 @@ public class ScoreController {
         return scoreService.getAllScores();
     }
 
-    @PostMapping("/all")
-    @ResponseStatus(HttpStatus.CREATED)
-    public List<ScoreModel> getAllReserveQualifications2() {
-        return scoreService.getAllScores();
-    }
+    //@GetMapping("/all")
+    //public List<ScoreModel> getAllReserveQualifications2() {
+    //    return scoreService.getAllScores();
+    //}
 
     @GetMapping("/{id}")
     public Optional<ScoreModel> getReserveQualification(@PathVariable Integer id) {

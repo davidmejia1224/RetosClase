@@ -42,8 +42,12 @@ public class ReservationService {
     }
 
     //Reto5
-    public List<CountClient> getClientTop(){
-        return reservationRepository.getClientTop();
+
+    public CountStatus getReservationsStatus(){
+        List<ReservationModel> completed = reservationRepository.getReservationsByStatus("completed");
+        List<ReservationModel> canceled = reservationRepository.getReservationsByStatus("canceled");
+
+        return new CountStatus((long) completed.size(), (long) canceled.size());
     }
 
     public List<ReservationModel> getReservationsBetweenDates(String dateA, String dateB){
@@ -66,10 +70,11 @@ public class ReservationService {
 
     }
 
-    public CountStatus getReservationsStatus(){
-        List<ReservationModel> reservationsCompleted = reservationRepository.getReservationsByStatus("completed");
-        List<ReservationModel> reservationsCanceled = reservationRepository.getReservationsByStatus("canceled");
-
-        return new CountStatus((long) reservationsCompleted.size(), (long) reservationsCanceled.size());
+    public List<CountClient> getClientTop(){
+        return reservationRepository.getClientTop();
     }
+
+
+
+
 }

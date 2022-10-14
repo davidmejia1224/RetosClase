@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/Reservation")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class ReservationController {
 
     @Autowired
@@ -24,11 +24,10 @@ public class ReservationController {
         return (List<ReservationModel>) reservationService.getAllReservations();
     }
 
-    @PostMapping("/all")
-    @ResponseStatus(HttpStatus.CREATED)
-    public List<ReservationModel> getAllReservations2() {
-        return (List<ReservationModel>) reservationService.getAllReservations();
-    }
+    //@GetMapping("/all")
+    //public List<ReservationModel> getAllReservations2() {
+    //    return (List<ReservationModel>) reservationService.getAllReservations();
+    //}
 
     @GetMapping("{idReservation}")
     public Optional<ReservationModel> getReservation(@PathVariable Integer idReservation) {
@@ -55,20 +54,23 @@ public class ReservationController {
     }
 
     //Reto5
-    @GetMapping("/report-clients")
-    public List<CountClient> getClientsTop(){
-        return reservationService.getClientTop();
+    @GetMapping("/report-status")
+    public CountStatus getReportStatus(){
+        return reservationService.getReservationsStatus();
     }
 
     @GetMapping("/report-dates/{dateOne}/{dateTwo}")
     public List<ReservationModel> getReportReservationsBetweenDates(@PathVariable("dateOne") String dateOne, @PathVariable("dateTwo") String dateTwo){
         return reservationService.getReservationsBetweenDates(dateOne, dateTwo);
     }
-    
-    @GetMapping("/report-status")
-    public CountStatus getReportStatus(){
-        return reservationService.getReservationsStatus();
+    @GetMapping("/report-clients")
+    public List<CountClient> getClientsTop(){
+        return reservationService.getClientTop();
     }
+
+
+    
+
 
 
 

@@ -22,11 +22,10 @@ public class DoctorController {
         return doctorService.getAllDoctors();
     }
 
-    @PostMapping("/all")
-    @ResponseStatus(HttpStatus.CREATED)
-    public List<DoctorModel> getAllDoctors2() {
-        return doctorService.getAllDoctors();
-    }
+    //@GetMapping("/all")
+    //public List<DoctorModel> getAllDoctors2() {
+    //    return doctorService.getAllDoctors();
+    //}
 
     @GetMapping("/{id}")
     public Optional<DoctorModel> getDoctor(@PathVariable Integer id) { //

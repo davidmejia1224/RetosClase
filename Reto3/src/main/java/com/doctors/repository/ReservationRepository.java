@@ -75,21 +75,22 @@ public class ReservationRepository {
     }
 
     //Reto5
-    public List<CountClient> getClientTop(){
-        List<CountClient> response = new ArrayList<>();
-
-        List<Object[]> report = reservationCrudRepository.countTotalReservationsByClient();
-        for(int i = 0; i<report.size(); i++){
-            response.add(new CountClient((Long) report.get(i)[1], (ClientModel) report.get(i)[0]));
-        }
-        return response;
+    public List<ReservationModel> getReservationsByStatus(String status){
+        return reservationCrudRepository.findAllByStatus(status);
     }
 
     public List<ReservationModel> getReservationsBetweenDates(Date a, Date b){
         return reservationCrudRepository.findAllByStartDateAfterAndDevolutionDateBefore(a, b);
     }
 
-    public List<ReservationModel> getReservationsByStatus(String status){
-        return reservationCrudRepository.findAllByStatus(status);
+    public List<CountClient> getClientTop(){
+        List<CountClient> response = new ArrayList<>();
+
+        List<Object[]> report = reservationCrudRepository.countTotalReservationsByClient();
+        for(int i = 0; i <report.size(); i++){
+            response.add(new CountClient((Long) report.get(i)[1], (ClientModel) report.get(i)[0]));
+        }
+        return response;
     }
+
 }

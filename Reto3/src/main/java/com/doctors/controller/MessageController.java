@@ -22,11 +22,10 @@ public class MessageController {
         return messageService.getAllMessage();
     }
 
-    @PostMapping("/all")
-    @ResponseStatus(HttpStatus.CREATED)
-    public List<MessageModel> getAllMessage2() {
-        return messageService.getAllMessage();
-    }
+    //@GetMapping("/all")
+    //public List<MessageModel> getAllMessage2() {
+    //    return messageService.getAllMessage();
+    //}
 
     @GetMapping("/{idMessage}")
     public Optional<MessageModel> getMessage(@PathVariable Integer idMessage) {

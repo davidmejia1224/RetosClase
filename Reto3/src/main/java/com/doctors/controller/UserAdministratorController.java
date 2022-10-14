@@ -22,11 +22,10 @@ public class UserAdministratorController {
         return (List<UserAdministratorModel>) userAdministratorService.getAllUserAdministrators();
     }
 
-    @PostMapping("/all")
-    @ResponseStatus(HttpStatus.CREATED)
-    public List<UserAdministratorModel> getAllUserAdministrators2() {
-        return (List<UserAdministratorModel>) userAdministratorService.getAllUserAdministrators();
-    }
+    //@GetMapping("/all")
+    //public List<UserAdministratorModel> getAllUserAdministrators2() {
+    //    return (List<UserAdministratorModel>) userAdministratorService.getAllUserAdministrators();
+    //}
 
     @GetMapping("{id}")
     public Optional<UserAdministratorModel> getUserAdministrator(@PathVariable Integer id) {
