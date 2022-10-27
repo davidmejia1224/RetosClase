@@ -64,5 +64,4 @@ public class SpecialtyService {
         }).orElse(false);
         return aBoolean;
     }
-
 }

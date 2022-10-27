@@ -77,5 +77,4 @@ public class DoctorService {
         }).orElse(false);
         return aBoolean;
     }
-
 }
